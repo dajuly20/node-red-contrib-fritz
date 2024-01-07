@@ -1,4 +1,5 @@
 var Fritzbox = require("fritzbox")
+var createError = require('createerror'); 
 
 
 module.exports = function(RED) {
@@ -37,7 +38,7 @@ module.exports = function(RED) {
 			} else {
 				node.warn("Device not ready.");
 				node.config.reinit();
-				 throw new Error('Device not ready.');
+				throw createError({ name: 'NotReady', message: 'Device not ready.' }); 
 			}
 		});
 
