@@ -37,6 +37,7 @@ module.exports = function(RED) {
 			} else {
 				node.warn("Device not ready.");
 				node.config.reinit();
+				 throw new Error('Device not ready.');
 			}
 		});
 
